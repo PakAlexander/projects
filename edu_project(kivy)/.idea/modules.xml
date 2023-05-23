@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/kivy.iml" filepath="$PROJECT_DIR$/.idea/kivy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/test(kivy).iml" filepath="$PROJECT_DIR$/.idea/test(kivy).iml" />
     </modules>
   </component>
 </project>
