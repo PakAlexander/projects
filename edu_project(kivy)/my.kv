@@ -1,28 +1,77 @@
+<ItemLabel@Label>:
+    font_size: "25sp"
+    halign: "left"
+    valign: "middle"
+    text_size: self.size
 
 <Container>:
-    rows: 3
-    padding: 50
-
     text_input: text_input
-    label_widget: label
+    salt: salt
+    solt_nitro: solt_nitro
+    sugar: sugar
+    starts: starts
+    time: time
 
-    TextInput:
-        id: text_input
-        size_hint: 1, 0.4
-        multiline: False
-        font_size: 40
+    rows: 3
+    AnchorLayout:
+        size_hint: 1, 0.15
+        TextInput:
+            id: text_input
+            font_size: '45sp'
+            multiline: False
+            input_type: 'number'
+            input_filter: 'int'
 
-    Label:
-        id: label
-        text: 'Text'
-        font_size: 40
+    GridLayout:
+        cols: 2
 
-    FloatLayout:
+        BoxLayout:
+            padding: [30, 0, 0, 0]
+            orientation: "vertical"
+            ItemLabel:
+                text: "Solt"
+
+            ItemLabel
+                text: "Solt Nitro"
+
+            ItemLabel
+                text: "MomoSugar"
+
+            ItemLabel
+                text: "Starts"
+
+            ItemLabel
+                text: "Time"
+
+        BoxLayout:
+            size_hint: 0.5, 1
+            orientation: "vertical"
+            ItemLabel:
+                id: salt
+                text: "0"
+
+            ItemLabel
+                id: solt_nitro
+                text: "0"
+
+            ItemLabel
+                id: starts
+                text: "0"
+
+            ItemLabel
+                id: sugar
+                text: "0"
+
+            ItemLabel
+                id: time
+                text: "0"
+
+    BoxLayout:
+        size_hint: 0.9, 0.15
+        padding: [30, 0 , 30, 20]
         Button:
-            size_hint: 0.5, 0.4
-            text: 'Hello'
-            pos_hint: {'center_x': 0.5, 'y': 0.1 }
-            size_hint: 1, 0.5
+            font_size: "35sp"
+            text: 'Go!'
 
             on_release:
-                root.change_text()
+                root.calculate()
