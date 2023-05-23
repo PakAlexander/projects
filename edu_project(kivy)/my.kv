@@ -1,4 +1,8 @@
-<ItemLabel@Label>:
+#:import MDLabel kivymd.label.MDLabel
+#:import MDTextField kivymd.textfields.MDTextField
+#:import MDRaisedButton kivymd.button
+
+<ItemLabel@MDLabel>:
     font_size: "25sp"
     halign: "left"
     valign: "middle"
@@ -14,13 +18,16 @@
 
     rows: 3
     AnchorLayout:
-        size_hint: 1, 0.15
-        TextInput:
+        anchor_y: 'top'
+        size_hint: 1, 0.2
+        padding: 30
+        MDTextField:
             id: text_input
             font_size: '45sp'
             multiline: False
             input_type: 'number'
             input_filter: 'int'
+            hint_text: 'Mass in grams'
 
     GridLayout:
         cols: 2
@@ -67,11 +74,13 @@
                 text: "0"
 
     BoxLayout:
-        size_hint: 0.9, 0.15
+        size_hint: 1, 0.15
         padding: [30, 0 , 30, 20]
         Button:
+            size_hint: 1, 0.9
             font_size: "35sp"
             text: 'Go!'
+            background_color: 'blue'
 
             on_release:
                 root.calculate()
