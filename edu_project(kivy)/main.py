@@ -1,10 +1,7 @@
 from kivy.app import App
-from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
-from kivy.properties import ObjectProperty
 from kivy.core.window import Window
 
-# Window.size = (720, 1280)
 Window.size = (400, 800)
 from kivy.config import Config
 
