@@ -1,0 +1,70 @@
+#:kivy 2.2.0
+
+<MainBox>:
+    orientation: 'vertical'
+
+    MDTopAppBar:
+        type: "top"
+        title: 'Телефонная книга'
+
+    MDBottomNavigation:
+        MDBottomNavigationItem:
+            name: "screen search"
+            text: "поиск"
+            icon: "magnify"
+            MDBoxLayout:
+                orientation: 'vertical'
+                MDBoxLayout:
+                    MDTextField
+                        id: search_name
+                        hint_text: 'Введите имя контакта поиска'
+
+                MDRectangleFlatButton:
+                    text: 'Искать'
+#                   pos_hint: {"center_x": .5, "center_y": .5}
+                    on_release:
+                        app.search_name(root.ids.search_name.text)
+#                        print(root, app, self)
+
+
+                MDBoxLayout:
+                    MDTextField
+                        id: search_number
+                        hint_text: 'Введите телефон контакта для поиска'
+
+                MDRectangleFlatButton:
+                    text: 'Искать'
+                    on_release:
+                        app.search_name(root.ids.search_number.text)
+
+                MDScrollView:
+                MDList:
+                    id: search_result
+
+        MDBottomNavigationItem:
+            name: "screen add"
+            text: 'Добавить'
+            icon: 'account-plus-outline'
+            MDBoxLayout:
+                orientation: 'vertical'
+                MDTextField
+                    id: user_name
+                    hint_text: 'Введите имя контакта'
+                MDTextField
+                    id: user_phones
+                    multiline: True
+                    hint_text: 'Введите телефон'
+                Widget:
+                MDFloatingActionButton:
+                    icon: 'plus'
+                    pos_hint: {'right': .95}
+                    on_release:
+                        app.save_contact(root.ids.user_name.text, root.ids.user_phones.text)
+
+
+
+<SearchResultItem>:
+    IconLeftWidget:
+        icon: 'phone'
+    RightButton:
+        icon:'minus'
