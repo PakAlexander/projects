@@ -4,10 +4,16 @@
     orientation: 'vertical'
 
     MDTopAppBar:
-        type: "top"
+        orientation: 'horizontal'
         title: 'Телефонная книга'
 
+        MDIconButton:
+            size_hint: .1, 1
+            icon: 'expand-all-outline'
+            on_release: app.show_all()
+
     MDBottomNavigation:
+        id: bottom_nav
         MDBottomNavigationItem:
             name: "screen search"
             text: "поиск"
@@ -21,7 +27,6 @@
 
                 MDRectangleFlatButton:
                     text: 'Искать'
-#                   pos_hint: {"center_x": .5, "center_y": .5}
                     on_release:
                         app.search_name(root.ids.search_name.text)
 #                        print(root, app, self)
@@ -35,11 +40,13 @@
                 MDRectangleFlatButton:
                     text: 'Искать'
                     on_release:
-                        app.search_name(root.ids.search_number.text)
+                        app.search_number(root.ids.search_number.text)
 
-                MDScrollView:
-                MDList:
-                    id: search_result
+                ScrollView:
+                    size_hint: 1, 2
+                    MDList:
+                        id: search_result
+                Widget:
 
         MDBottomNavigationItem:
             name: "screen add"
@@ -68,3 +75,5 @@
         icon: 'phone'
     RightButton:
         icon:'minus'
+        on_release:
+            root.remove_contact()
